@@ -12,7 +12,7 @@ app.config(['$routeProvider', '$locationProvider',
 			})
 
 			.when('/brand/:id', {
-				templateUrl: 'home.html',
+				templateUrl: 'brand.html',
 				controller: 'brand-controller'
 			})
 
@@ -29,6 +29,7 @@ app.controller('main-controller', function($scope){
 });
 
 app.controller('brand-controller', function($scope, $routeParams){
+	console.log("routeParams are: ", $routeParams.id);
 
-
+	
 });
