@@ -1,0 +1,15 @@
+{
+  "name": "BNM_digital_styleguide",
+  "version": "0.0.0",
+  "authors": [
+    "Michael Parker <parker_michael@me.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

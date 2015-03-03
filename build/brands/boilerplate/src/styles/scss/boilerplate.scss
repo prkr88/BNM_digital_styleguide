@@ -1,0 +1,144 @@
+
+
+//Variables
+$heading-font-family: 'PT Sans', sans-serif;
+$heading-font-weight: bold;
+$heading-color: #000;
+
+$paragraph-font-family: serif;
+$paragraph-font-weight: 400;
+$paragraph-color: #333;
+
+$link-color: #48b8d0;
+$link-color-hover: #006992;
+
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+//TYPOGRAPHY
+h1 {
+	font:{
+		family: $heading-font-family;
+		weight: $heading-font-weight;
+		size: //heading size;
+	}
+	color: $heading-color;
+}
+
+h2 {
+	font:{
+		family: $heading-font-family;
+		weight: $heading-font-weight;
+		size: //heading size;
+	}
+	color: $heading-color;
+}
+
+h3 {
+	font:{
+		family: $heading-font-family;
+		weight: $heading-font-weight;
+		size: //heading size;
+	}
+	color: $heading-color;
+}
+
+h4 {
+	font:{
+		family: $heading-font-family;
+		weight: $heading-font-weight;
+		size: //heading size;
+	}
+	color: $heading-color;
+}
+
+h5 {
+	font:{
+		family: $heading-font-family;
+		weight: $heading-font-weight;
+		size: //heading size;
+	}
+	color: $heading-color;
+}
+
+h6 {
+	font:{
+		family: $heading-font-family;
+		weight: $heading-font-weight;
+		size: //heading size;
+	}
+	color: $heading-color;
+}
+
+
+p {
+	font:{
+		family: $paragraph-font-family;
+		weight: $paragraph-font-weight;
+		size: //heading size;
+	}
+	color: $paragraph-color;
+}
+
+a {
+	font:{
+		family: inherit;
+	}
+	color: $link-color;
+}
+
+a:hover {
+	color: $link-color-hover;
+}
+
+pre {
+	font: {
+		family: 'PT Mono', monospace;
+	}
+}
+
+
+
+//Interactive Elements
+button {
+
+}
+
+button .active {
+
+}
+
+button .disabled {
+
+}
+
+
+//Iconography
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
