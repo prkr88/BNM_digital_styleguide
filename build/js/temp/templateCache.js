@@ -1,2 +1,2 @@
-angular.module("templatescache", []).run(["$templateCache", function($templateCache) {$templateCache.put("brand.html","<h2>example Brand</h2>");
-$templateCache.put("home.html","<h1>home</h1>\n\n<p>This is where you would see a list of the various brands that we are supporting!</p>\n<a href=\"#/brand/12345\">example brand</a>");}]);
+angular.module("templatescache", []).run(["$templateCache", function($templateCache) {$templateCache.put("brand.html","<h2>Generic Brand Page</h2>");
+$templateCache.put("home.html","<h1>HOME</h1>\n\n<p>This is where you would see a list of the various brands that we are supporting!</p>\n<ul>\n	<li><a href=\"#/brand/12345\">Example brand</a>\n	<li><a href=\"#/brand/34534\">Another brand</a>\n</li>");}]);
