@@ -1,1 +1,50 @@
-<h2>Generic Brand Page</h2>
+<link rel="stylesheet" ng-href="{{brand.css}}">
+
+<center><h2>{{brand.name}}</h2></center>
+<hr/>
+
+
+<div class="brand-element-selector">
+	<ul>
+		<li ng-repeat="element in brand.elements"><a href="">{{element.name}}</a></li>
+	</ul>
+</div>
+
+<div class="brand-element-section" id="bn-brand">
+	<div class="brand-element-content" >
+	<h3>The Brand</h3>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	</div>
+</div>
+
+<div class="brand-element-section">
+	<div class="brand-element-content">
+	<h3>Typography</h3>
+	</div>
+</div>
+
+
+
+
+<!-- <div masonry masonry-options="{gutter: 10}">
+	<div class="masonry-brick brick" id="logo">LOGO</div>
+	<div class="masonry-brick brick" id="typography">TYPOGRAPHY</div>
+	<div class="masonry-brick brick" id="color"></div>
+	<div class="masonry-brick brick" id="iconography"></div>
+	<div class="masonry-brick brick" id="imagery"></div>
+	<div class="masonry-brick brick" id="tone-of-voice"></div>
+</div> -->
+
+<!-- {name: "The Brand"},
+{name: "Logo"},
+{name: "Typography"},
+{name: "Color"},
+{name: "Iconography"},
+{name: "Imagery"},
+{name: "Tone of Voice"},
+{name: "Downloads"} -->

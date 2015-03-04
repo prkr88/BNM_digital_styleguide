@@ -1,7 +1,26 @@
 //styles here
-
 body {
 	margin: 0;
 	padding: 0;
 	font-family: sans-serif;
 }
+
+
+
+.tile-container {
+	display: block;
+	margin: -10px;
+}
+
+.brand-tile {
+	display: inline-block;
+	width: 300px;
+	height: 200px;
+	border: 1px solid black;
+	margin: 10px;
+}
+
+
+
+
+
