@@ -6,9 +6,14 @@ var templateCache = require ('gulp-angular-templatecache')
 var browserSync = require ('browser-sync');
 var streamqueue = require('streamqueue');
 
+
+gulp.task('fonts', function(){
+	gulp.src('./build/scss/fonts/**')
+		.pipe(gulp.dest('./public/src/css/fonts'))
+})
 //Compile views into an angular $templateCache module
 //Move them to a temp folder, we'll add them to public later
-gulp.task('views', function(){
+gulp.task('views', ['fonts'], function(){
  return streamqueue({ objectMode: true },
     gulp.src('./build/views/**/*.html')
     )
