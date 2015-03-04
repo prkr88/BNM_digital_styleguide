@@ -1,6 +1,6 @@
 //Define the app and dependencies
 var data = data;
-var app = angular.module('app', ['ngRoute', 'templatescache', 'wu.masonry'])
+var app = angular.module('app', ['ngRoute', 'templatescache'])
 var log = function(data){console.log(data)};
 
 //Configure routes
@@ -8,7 +8,7 @@ app.config(['$routeProvider', '$locationProvider',
 	function($routeProvider, $locationProvider){
 		$routeProvider
 			.when('/', {
-				templateUrl: 'styleguide.html',
+				templateUrl: 'home.html',
 				controller: 'main-controller'
 			})
 
