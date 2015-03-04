@@ -161,13 +161,56 @@ body {
 
 }
 
+.baseline {
+	display: block;
+	width: inherit;
+
+	& p{
+		height: 20px;
+		font-size: 15px;
+		line-height: 30px;
+		vertical-align: bottom;
+		border-bottom: 1px solid rgba(0,0,255, 0.5);
+	}
+	& p:nth-child(even){
+		
+		background-position: 0% 30%;
+	}
+}
+
+.cols {
+	display: flex;
+	max-width: $full;
+	margin: auto;
+}
+
+.col{
+	flex: 1;
+	height: 180px;
+	background-color: #efefef;
+	margin: 7.5px;
+	text-align: center;
+	padding-top: 10px;
+	font-size: 15px;
+}
+
+@media screen and (max-width: 500px){
+	.cols{
+		flex: wrap;
+	}
+	.col {
+		flex: 3;
+	}
+	
+}
 
 
 
 
-
-
-
+pre {
+	display: inline;
+	white-space: none;
+}
 
 
 
