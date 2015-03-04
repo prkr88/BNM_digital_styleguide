@@ -6,6 +6,8 @@ var templateCache = require ('gulp-angular-templatecache')
 var browserSync = require ('browser-sync');
 var streamqueue = require('streamqueue');
 
+
+
 //Compile views into an angular $templateCache module
 //Move them to a temp folder, we'll add them to public later
 gulp.task('views', function(){
@@ -32,7 +34,7 @@ gulp.task('assets', ['home'], function(){
 gulp.task('scripts', ['assets'], function(){
 	return streamqueue({ objectMode: true },
 		gulp.src('./build/js/angular-app.js'),
-		gulp.src('./build/js/data.js'),
+		gulp.src('./build/data/data.js'),
 		gulp.src('./build/js/temp/templateCache.js')
 		)
 		.pipe(gulp.dest('./public/src/js/'));
@@ -64,6 +66,7 @@ gulp.task('watch', function(){
     gulp.watch(
         ['./build/html/*.html',
         './build/js/*.js',
+        './build/data/*.js',
         './build/scss/**/*.scss',
         './build/scss/partials/*.scss',
         './build/views/*.html',
