@@ -1,22 +1,20 @@
 <center>
 <br/>
-<button ng-show="!brief" ng-click="brief = 'creativeBrief' ">+ Creative Brief</button>
-<button ng-show="!brief" ng-click="brief = 'campaignBrief' ">+ Campaign Brief</button>
-<button ng-show="!brief" ng-click="brief = 'projectBrief' ">+ Project Brief</button>
+<button ng-click="brief = 'creativeBrief' ">+ Creative Brief</button>
+<button ng-click="brief = 'campaignBrief' ">+ Campaign Brief</button>
+<button ng-click="brief = 'projectBrief' ">+ Project Brief</button>
+<br/><br/><br/>
 
 <div class="iframe" ng-if="brief == 'campaignBrief'">
-	<h2>Campaign Brief</h2><br/>
-  <iframe src="https://docs.google.com/forms/d/1-bXU9nMU-LwduiC3w98Mac8cXsawndcAY2VOl2HERKI/viewform?embedded=true&amp;ttl=0" width="720" height="1513" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+	<div ng-include=" 'Marketing-Campaign-Brief-form.html' "></div>
 </div>
 
 <div class="iframe" ng-if="brief == 'creativeBrief'">
-	<h2>Creative Brief</h2><br/>
-  <iframe src="https://docs.google.com/forms/d/1EaiTVCj-XDBGvVTX0jPbOAUHQDmDwxw39-AG0jBMVek/viewform?embedded=true&amp;ttl=0" width="720" height="1513" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+	<div ng-include=" 'creative-brief-form.html' "></div>
 </div>
 
 <div class="iframe" ng-if="brief == 'projectBrief' ">
-	<h2>Project Brief</h2><br/>
-  <iframe src="https://docs.google.com/forms/d/15uDnrfn6QlkH6CLC-D3kpN-y84-ESj2k5-uPQn_dpzM/viewform?embedded=true&amp;ttl=0" width="720" height="1513" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+	<div ng-include=" 'project-brief-form.html' "></div>
 </div>
 
 </center>
