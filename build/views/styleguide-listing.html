@@ -1,0 +1,14 @@
+<div class="container flex">
+	<br/>
+	<h2 ng-hide="localOnly">Our branding guidelines will be avaliable soon.</h2>
+
+	<div class="brand-tile-container" ng-repeat="brand in brands">
+		<a ng-href="#/guidelines/{{brand.link}}">
+		<div ng-if="localOnly" class="brand-tile" ng-style="{'background-image':'url({{brand.artwork}})'}">
+			<p ng-if="!brand.artwork">{{brand.name}}</p>
+			<br/></div></a>
+		
+		</div>
+
+
+</div>

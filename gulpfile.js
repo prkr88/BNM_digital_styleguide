@@ -5,8 +5,7 @@ var notify = require ('gulp-notify');
 var templateCache = require ('gulp-angular-templatecache')
 var browserSync = require ('browser-sync');
 var streamqueue = require('streamqueue');
-
-
+var autoprefixer = require('gulp-autoprefixer');
 
 //Compile views into an angular $templateCache module
 //Move them to a temp folder, we'll add them to public later
@@ -26,7 +25,7 @@ gulp.task('home', ['views'], function(){
 
 //move everything in the assets folder to public/assets
 gulp.task('assets', ['home'], function(){
-	gulp.src('./build/assets/**')
+	gulp.src('./build/assets/*/**')
 		.pipe(gulp.dest('./public/src/assets/'));
 });
 
@@ -34,7 +33,7 @@ gulp.task('assets', ['home'], function(){
 gulp.task('scripts', ['assets'], function(){
 	return streamqueue({ objectMode: true },
 		gulp.src('./build/js/angular-app.js'),
-		gulp.src('./build/data/data.js'),
+		gulp.src('./build/js/data.js'),
 		gulp.src('./build/js/temp/templateCache.js')
 		)
 		.pipe(gulp.dest('./public/src/js/'));
@@ -43,7 +42,7 @@ gulp.task('scripts', ['assets'], function(){
 //compile SASS and then move it to public/css
 //Notify when build is complete
 gulp.task('build', ['scripts'], function(){
-	gulp.src('./build/scss/*scss')
+	gulp.src('./build/scss/*.scss')
 		.pipe(sass({
 	        style: 'compressed',
 	        errLogToConsole: false,
@@ -51,6 +50,10 @@ gulp.task('build', ['scripts'], function(){
 	            return notify().write(err);
 	        }
 	    }))
+	    .pipe(autoprefixer({
+            browsers: ['last 2 versions'],
+            cascade: false
+        }))
 		.pipe(gulp.dest('./public/src/css/'))
 		.pipe(notify("Build - Success!"));
 });
@@ -58,20 +61,18 @@ gulp.task('build', ['scripts'], function(){
 //move bower components to the library folder
 gulp.task('bower', function(){
 	return bower()
-		.pipe(gulp.dest('./public/src/js/lib/'));
+		.pipe(gulp.dest('./public/src/js/lib/'))
+		.pipe(notify('Bower Success'));
 });
 
+
+gulp.task('watch-bower', function(){
+	gulp.watch(['./bower_components'], ['bower'])
+})
 //watch these files and run the build if they update
-gulp.task('watch', function(){
+gulp.task('watch-build', function(){
     gulp.watch(
-        ['./build/html/*.html',
-        './build/js/*.js',
-        './build/data/*.js',
-        './build/scss/**/*.scss',
-        './build/scss/partials/*.scss',
-        './build/views/*.html',
-        './build/assets/**/*',
-        './bower_components'],
+        ['./build/**/**/*'],
         ['build']
     )
 });
@@ -80,11 +81,7 @@ gulp.task('watch', function(){
 //Refresh the browser if any files change
 gulp.task('serve', function () {
 		var files = [
-		'./public/**/*.html',
-		'./public/src/**/*.js',
-		'./public/src/assets/**/*',
-		'./public/src/css/*.css',
-		'./public/src/views*.html'
+		'./public/**/*'
 	];
 
     browserSync.init(files, {
@@ -95,5 +92,5 @@ gulp.task('serve', function () {
 });
 
 //default task
-gulp.task('default', ['build', 'bower', 'watch', 'serve']);
+gulp.task('default', ['build', 'bower', 'watch-build', 'watch-bower', 'serve']);
 

@@ -12,6 +12,22 @@ app.config(['$routeProvider', '$locationProvider',
 				controller: 'main-controller'
 			})
 
+			.when('/guidelines', {
+				templateUrl: 'styleguide-listing.html',
+				controller: 'styleguide-controller'
+			})
+
+
+			.when('/guidelines/:link', {
+				templateUrl: 'styleguide-template.html',
+				controller: 'styleguide-controller'
+			})
+
+			.when('/briefing', {
+				templateUrl: 'creative-briefing.html',
+				controller: 'main-controller'
+			})
+
 			.otherwise({
 				redirectTo: '/'
 			});
@@ -20,11 +36,34 @@ app.config(['$routeProvider', '$locationProvider',
 
 
 //Controllers
-app.controller('main-controller', function($scope){
-	$scope.data = data;
-	$scope.css = "/src/css/app-styles.css";
+app.controller('main-controller', function($scope, $location){
+	$scope.brands = data;
+
+	$scope.localOnly = function(){
+		if($location.$$host === "localhost"){
+			return true;
+		}
+	};
 
 });
+
+app.controller('styleguide-controller', function($scope, $routeParams){
+	$scope.brands = data;
+	$scope.localOnly = function(){
+		if($location.$$host === "localhost"){
+			return true;
+		}
+	};
+
+	for(x in $scope.brands){
+		if($scope.brands[x].link === $routeParams.link){
+			$scope.brand = $scope.brands[x];
+		}
+	}
+
+
+
+})
 
 // app.controller('brand-controller', function($scope, $routeParams, $location){
 // 	//import data into the scope
