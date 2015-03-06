@@ -1,12 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="bnm-styleguide">
 <head>
 	<title>BNM_Styleguide</title>
+	<meta charset="UTF-8">
+	<meta type="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="src/css/bnm_styleguide.css">
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
 	<script type="text/javascript" src="src/js/lib/jquery/dist/jquery.js"></script>
+	<script type="text/javascript" src="src/js/lib/angular/angular.js"></script>
+	<script type="text/javascript" src="src/js/bnm-styleguide.js"></script>
 </head>
-<body>
+<body ng-controller="main-controller">
 
 
 <section id="hero">
@@ -38,19 +43,85 @@
 
 <section id="typography">
 	<div class="content">
-		<h1>Typography</h1>
-
+		<h1>Typography</h1><hr/><br/><br/>
+		<div class="typography-container" id="dock">
+			<h3>Heading - Dock 11</h3>
+			<h1>ABCDEFGHIJKLMNOPQRSTUVWXYZ</h1>
+			<h1>0123456789@abcdefg</h1>
+			<h1> !#$&amp;&quot;</h1>
+		</div>
+		<br/>
+		<div class="typography-container" id="lft">
+			<h3>Heading - LFT Etica Display Heavy</h3>
+			<h1>ABCDEFGHIJKLMNOPQRSTUVWXYZ</h1>
+			<h1>abcdefghijklmnopqrstuvwxyz</h1>
+			<h1>0123456789!@#$%&amp;&quot;</h1>
+			<!-- <h2>Source Sans Pro Regular</h2> -->
+		</div>
+		<br/>
+		<div class="typography-container" id="ssp">
+			<h3>Body - Source Sans Pro Regular</h3>
+			<h1>ABCDEFGHIJKLMNOPQRSTUVWXYZ</h1>
+			<h1>abcdefghijklmnopqrstuvwxyz</h1>
+			<h1>0123456789!@#$%&amp;&quot;</h1>
+			<!-- <h2>Source Sans Pro Regular</h2> -->
+		</div>
+		<br/>
+		<div class="typography-container" id="ssp-light">
+			<h3>Body - Source Sans Pro light</h3>
+			<h1>ABCDEFGHIJKLMNOPQRSTUVWXYZ</h1>
+			<h1>abcdefghijklmnopqrstuvwxyz</h1>
+			<h1>0123456789!@#$%&amp;&quot;</h1>
+			<!-- <h2>Source Sans Pro Regular</h2> -->
+		</div>
 	</div>
 </section>
 
 
 <section id="colors">
 	<div class="content">
-	<h1>Colour</h1>
+	<h1>Primary Colours</h1><hr/>
 
+	<div class="palette-container">
+		<div class="swatch-container" ng-repeat="color in primaryColors">
+			<div class="swatch" ng-style="{'background-color': color.hex }"></div>
+			<div class="values">
+				<h3>{{color.name}}</h3>
+				<p>HEX: {{color.hex}}</p>
+				<p>RGB: {{color.rgb}}</p>
+				<p>Pantone: {{color.pms}}</p>
+				<p>CMYK: {{color.cmyk}}</p>
+			</div>
+		</div>
+	</div>
+	
+	</div>
+	</section>
+
+
+<section id="colors">
+<div class="content">
+	<h1>Secondary Colours</h1><hr/>
+		<div class="palette-container">
+			<div class="swatch-container" ng-repeat="color in secondaryColors">
+				<div class="swatch" ng-style="{'background-color': color.hex }"></div>
+				<div class="values">
+					<h3>{{color.name}}</h3>
+					<p>HEX: {{color.hex}}</p>
+					<p>RGB: {{color.rgb}}</p>
+					<p>Pantone: {{color.pms}}</p>
+					<p>CMYK: {{color.cmyk}}</p>
+				</div>
+			</div>
+		</div>
 	</div>
 </section>
 
+<section id="photography">
+	<div class="content">
+		<h1>Photography</h1>
+	</div>
+</section>
 
 <!-- SMOOTH SCROLLING -->
 <script type="text/javascript">
