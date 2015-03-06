@@ -7,6 +7,8 @@ var browserSync = require ('browser-sync');
 var streamqueue = require('streamqueue');
 var autoprefixer = require('gulp-autoprefixer');
 
+
+
 //Compile views into an angular $templateCache module
 //Move them to a temp folder, we'll add them to public later
 gulp.task('views', function(){
@@ -72,7 +74,7 @@ gulp.task('watch-bower', function(){
 //watch these files and run the build if they update
 gulp.task('watch-build', function(){
     gulp.watch(
-        ['./build/**/**/*'],
+        ['./build/scss/*.scss', './build/html/*.html'],
         ['build']
     )
 });
@@ -81,7 +83,8 @@ gulp.task('watch-build', function(){
 //Refresh the browser if any files change
 gulp.task('serve', function () {
 		var files = [
-		'./public/**/*'
+		'./public/**/*',
+		'./public/*.html'
 	];
 
     browserSync.init(files, {

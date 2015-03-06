@@ -2,8 +2,8 @@
 	<br/>
 	<h2 ng-hide="localOnly">Our branding guidelines will be avaliable soon.</h2>
 
-	<div class="brand-tile-container" ng-repeat="brand in brands">
-		<a ng-href="#/guidelines/{{brand.link}}">
+	<div class="brand-tile-container" ng-repeat="brand in brands" ng-show="brand.publish">
+		<a ng-href="{{brand.link}}">
 		<div ng-if="localOnly" class="brand-tile" ng-style="{'background-image':'url({{brand.artwork}})'}">
 			<p ng-if="!brand.artwork">{{brand.name}}</p>
 			<br/></div></a>
