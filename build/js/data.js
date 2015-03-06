@@ -1,7 +1,7 @@
 var data = [
 	{
 		name: "Brand New Media", //name of the brand
-		link: "/bnm_styleguide.html", //the link that will be displayed in the URL bar (no spaces)
+		link: "./bnm_styleguide.html", //the link that will be displayed in the URL bar (no spaces)
 		publish: true
 	},
 	{
