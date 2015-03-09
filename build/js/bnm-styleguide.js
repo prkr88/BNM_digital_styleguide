@@ -1,4 +1,4 @@
-var app = angular.module('bnm-styleguide', []);
+var app = angular.module('bnm-styleguide', ['ngAnimate']);
 
 app.controller('main-controller', function($scope, $window){
 	$scope.primaryColors = [
@@ -27,16 +27,10 @@ app.controller('main-controller', function($scope, $window){
 
 	$scope.isSelectedTypeTab = function(tab){
 		if(tab === $scope.selectedTypeTab){
-			return {'background-color' : '#444', 'color' : '#fff', 'border-bottom': '2px solid #f47a28'};
+			return {'color': '#f47a28'};
 		}
 	}
 
-	// $scope.height = $window.innerHeight;
-	// $scope.heroHeight = $('#hero').offset().top;
-	// console.log($scope.height);
-	// console.log($scope.heroHeight);
-
-	// $('#hero').height($scope.height - 80);
 });
 
 

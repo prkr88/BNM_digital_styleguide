@@ -6,7 +6,7 @@ Author: Michael Parker - github.com/prkr88
 
 
 //!FONTS//
-@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700);
+@import url("http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700");
 
 
 
@@ -40,10 +40,14 @@ $black_60: rgba(0,0,0,0.6);
 
 //!RESET//
 * {
-	margin:0;
+	margin: 0;
 	padding: 0;
 }
 
+html, html a {
+    -webkit-font-smoothing: antialiased !important;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+}	
 
 //!Rem sizing set to 15px;
 body {
@@ -51,6 +55,7 @@ body {
 	width: 100%;
 	height: 100%;
 	font-family: Source Sans Pro, sans-serif;
+	min-width: 768px;
 }
 
 p {
@@ -60,17 +65,17 @@ p {
 	color: #000;
 }
 
-a {
-	color: $bnm_orange;
-	text-decoration: none;
-	&:hover{
-		border-bottom: 2px solid $bnm_orange;
-	}
-}
+// a {
+// 	color: $bnm_orange;
+// 	text-decoration: none;
+// 	&:hover{
+// 		border-bottom: 2px solid $bnm_orange;
+// 	}
+// }
 
 blockquote {
 	display: block;
-	margin:20px;
+	margin: 20px;
 	background-color: #eee;
 	border-left: 10px solid $bnm_orange;
 	padding: 15px;
@@ -90,23 +95,28 @@ h1 {
 li {
 	margin-left: 1.2rem;
 }
-section {
-	min-height: 100%;
-	position: relative;
-	padding:5%;
 
+section {
+	height: 80vh;
+	max-height: 600px;
+	padding-left: 5%;
+	padding-right: 5%;
+	position: relative;
 }
 
 pre {
-	max-height: 400px;
-	overflow: scroll;
+	max-height: 350px;
+	overflow-y: scroll;
+	overflow-x: hidden !important;
 	-webkit-overflow-scrolling: touch;
 }
 
 .content {
 		max-width: 1200px;
-		min-height: 90vh;
 		width: inherit;
+		height: 60vh;
+		padding: 5vh;
+		overflow: hidden;
 		margin: {
 			left: auto;
 			right: auto;
@@ -134,18 +144,19 @@ pre {
 	right: 0;
 	margin: auto;
 	color: #fff;
-	
+	cursor: pointer;
 	& a {
 		color: inherit;
-
 		text-decoration: none;
 		&:visited {
 			color: inherit;
 		}
 	}
-	& .fa{
+	.fa {
+		cursor: pointer;
 		animation: bounce infinite 2s;
 		transition: all 0.3s;
+
 		&:hover {
 			// transform: scale(1.3, 1.3);
 			// animation: none;
@@ -167,6 +178,8 @@ pre {
 
 #hero {
 	animation: colorchange infinite 20s;
+	height: 100vh;
+	max-height: 100%;
 	#hero-text-container {
 		position: absolute;
 		top: 20%;
@@ -189,25 +202,12 @@ pre {
 		font-family: $lft;
 		color: $black_60;
 	}
-	@media screen and (max-width: 540px){
-		#hero-text-container {
-			top: 30%;
-			h1 {
-				font-size: 2rem;
-			}
-			h2 {
-				font-size: 1rem;
-			}
-		}
-		.glyph {
-			display: none;
-			}
-	}
 }
 
 #our-brand {
 	background-color: #f8f8f8;
 	.content {
+
 	}
 }
 
@@ -218,38 +218,37 @@ pre {
 			color: #fff;
 		}
 		color: #fff;
-
 	}
 }
 
 #typography {
 	background-color: #f8f8f8;
 	.content {
-		.typography-container{
-			margin-top: 20px;
-		}
 		.typography-nav {
 			display: block;
-			height: 45px;
-			line-height: 43px;
+			// height: 45px;
+			// line-height: 43px;
 			vertical-align: middle;
-			background-color: #efefef;
+			// background-color: #efefef;
 			ul {
 				list-style: none;
-
+				margin-top: 5px;
+				margin-bottom: 1.2rem;
 				li {
 					display: inline;
 					margin: 0px;
-
 					a {
-						display: inline-block;
-						box-sizing:border-box;
-						text-align: center;
-						min-width: 100px;
-						padding-left: 20px;
-						padding-right: 20px;
+						display: inline;
+						margin-right: 20px;
 						text-decoration: none;
-						color: #444;
+						color: $bnm_grey;
+						// font-size: 0.8rem;
+						font-weight: 400;
+						text-transform: uppercase;
+
+						&:hover{
+							color:  $bnm_orange;
+						}
 					}
 				}	
 			}
@@ -299,8 +298,6 @@ pre {
 
 
 #colors {
-	// background-color: #111;
-	// color: #fff;
 	&:nth-child(even) {
 		background-color: #f8f8f8;
 	}
@@ -317,20 +314,9 @@ pre {
 			vertical-align: top;
 			margin-top: 20px;
 			width: 50%;
-			// margin-right: 20px;
 			&:last-child{
 				margin-right: 0px;
 			}
-			// box-shadow: 0px 0px 10px #ccc;
-			// @media screen and (max-width: 960px){
-			// 	// margin-right: 20px;
-			// }
-			// @media screen and (max-width: 540px){
-			// 	display: block;
-			// 	margin-bottom:40px;
-			// 	margin-right: 0px;
-			// 	width: inherit;
-			// }
 			transition: all 0.3s;
 			&:hover {
 				transform: scale(1.05, 1.05);
@@ -371,14 +357,6 @@ pre {
 	}
 	
 }
-
-
-
-
-
-
-
-
 
 
 
