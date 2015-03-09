@@ -3,13 +3,22 @@
 <head>
 	<title>BNM_Styleguide</title>
 	<meta charset="UTF-8">
-	<meta type="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+	<link href="src/css/prism.css" type="text/css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="src/css/bnm_styleguide.css">
+	<script type="text/javascript" src="src/js/prism.js"></script>
+
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
 	<script type="text/javascript" src="src/js/lib/jquery/dist/jquery.js"></script>
 	<script type="text/javascript" src="src/js/lib/angular/angular.js"></script>
+	<script src="src/js/lib/angular-panel-snap/angular-panel-snap.min.js"></script>
 	<script type="text/javascript" src="src/js/bnm-styleguide.js"></script>
+	
+
 </head>
 <body ng-controller="main-controller">
 
@@ -43,37 +52,188 @@
 
 <section id="typography">
 	<div class="content">
-		<h1>Typography</h1><hr/><br/><br/>
-		<div class="typography-container" id="dock">
-			<h3>Heading - Dock 11</h3>
-			<h1>ABCDEFGHIJKLMNOPQRSTUVWXYZ</h1>
-			<h1>0123456789@abcdefg</h1>
-			<h1> !#$&amp;&quot;</h1>
+		<h1>Typography</h1><hr/><br/>
+		<nav class="typography-nav">
+			<ul>
+				<li ng-repeat="tab in typographyTabs"  ng-Click="selected(tab)"><a ng-style="isSelectedTypeTab(tab)" href="">{{tab}}</a></li>
+			</ul>
+		</nav>
+
+		<div class="typography-container" ng-if="selectedTypeTab == typographyTabs[0]">
+			<div class="heading-example">
+				<span id="h1Text">Aa</span>
+				<p><span id="char">LFT ETICA DISPLAY HEAVY</span></p>
+				<p><span id="char">abcdefghijklmnoprstuvwxyz</span></p>
+			</div>
+		<div class="paragraph-container">
+			<h2>Headings</h2>
+			<p>The font-family used is Dock11 or LFT Etica Display Heavy with all characters in uppercase and slight letter-spacing. The heading style can be treated with an orange to yellow gradient from left to right. The prefered treatment is a solid orange or grey colour. </p> <br/>
+			
+			<h3>Dock11</h3>
+			<p>Dock11 is designed for print and should be used sparingly. It has no lowercase and limited special characters and should be reserved for large headings. The typface is freeware and is avaliable from dafont for personal and commercial use.</p>
+			<br/>
+			<h3>LFT Etica Display Heavy</h3>
+			<p>For cases where headings are required for web, or need special characters, LFT Etica Display Heavy may be used as a substitute. The LFT Etica Display typeface is designed for mixed print and web use. It contains uppercase, lowercase, and special characters. LFT Etica Display Heavy is comercially licensed by Brand New Media for print use only. Any use of this font online is licensed though Adobe TypeKit and must be attributed to Adobe as per their EULA.</p>
+			<br/>
+			<h3>Arial Black</h3>
+			<p>The system font chosen is Arial Black. This should be only be used as a contingency and must not be used in branded material.</p>
+			<br/>
+			</div>
+
 		</div>
+
+
+		<div class="typography-container" ng-if="selectedTypeTab == typographyTabs[1]">
+			<div class="body-example">
+				<span id="bodyText">Aa</span>
+				<p><span id="char">Source Sans Pro Regular</span></p>
+				<p><span id="char">ABCDEFGHIJKLMNOPRSTUVWXYZ</span></p>
+				<p><span id="char">abcdefghijklmnoprstuvwxyz</span></p>
+			</div>
+
+			<div class="paragraph-container">
+				<h2>Body Copy</h2>
+				<p>Our body copy is presented in Source Sans Pro Regular. On web it should be used at 15px with a line-height of 1.4rem. For print this is 12pt with 17pt leading. The ratio of point size to leading/line-height is 1:1.4.</p>
+				<br/>
+				<h3>Source Sans Pro Regular</h3>
+				<p>Source Sans Pro is the default font used. It is a full UTF-8 font for mixed digital and print use and includes uppercase, lowercase, and special characters. The recommended weight is 400 (regular), with strong elements in 600 (semi-bold). When used in print or in text larger than 15px the weight may drop to 300 (light). The typeface is freeware and licensed through Google fonts for commercial use. </p>
+				<br/>
+				<h3>Arial</h3>
+				<p>The system font chosen is Arial. This should only be used as a contingency and must not be used in branded material.</p> 
+			</div>
+		</div>
+
+		<div class="typography-container" ng-if="selectedTypeTab == typographyTabs[2]">
+		<h2>Stylesheet</h2>
+		<p>Use this stylesheet as a boilerplate to set up typographic styling for web.</p><br/>
+			
+<pre>
+	<code class="language-css">
+	/* Define custom fonts and import Google fonts */
+	@import url("http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700");
+	@font-face {
+		font-family: LFT Etica Display Heavy;
+		font-weight: 700;
+		src: url('http://creative.brandnewmedia.global/bnm/digital_hub/src/assets/fonts/LFTEticaDisplay-Heavy.woff');
+		/* This url is yet to be confirmed */
+	}
+
+	/* Setup browser defaults */
+	body {
+		margin: 0;
+		padding: 0;
+		font-family: Source Sans Pro, Arial, Sans-Serif;
+		font-weight: 400;
+		font-size: 15px;
+		line-height: 20px;
+	}
+
+	/* Set Heading style */
+	h1 {
+		color: #F47A28;
+		font-family: LFT Etica Display Heavy, Arial Black, Sans-Serif;
+		font-wight: 700;
+		font-size: 3rem;
+		line-height: 3rem;
+		letter-spacing: 0.1rem;
+		text-transform: uppercase;
+	}
+
+	/* Set paragraph style */
+	p {
+		color: #000000;
+		font-size: 1rem;
+		font-weight: 400;
+		line-height: 1.4rem;
+	}
+
+	strong {
+		font-weight: 600;
+	}
+
+	/* Default link style */
+	a {
+		color: #F47A28;
+		font-weight: 600;
+		text-decoration: none;
+	}
+
+	a:hover {
+		border-bottom: 2px solid #F47A28;
+	}
+
+	a:visited {
+		color: inherit;
+	}
+
+	/* Blockquote styling */
+	blockquote {
+		display: block;
+		background-color: #eee;
+		border-left: 10px solid #F47A28;
+		margin:20px;
+		padding: 15px;
+	}
+
+	li {
+		margin-left: 1.2rem;
+	}
+</code></pre>
+		</div>
+		
+
+		<div class="typography-container" ng-if="selectedTypeTab == typographyTabs[3]">
+		<h2>Example of the web stylesheet</h2>
+		<hr/>
+			<!-- BEGIN PLACEHOLDER -->
+			<h1>Header One</h1>
+			<p>Lorem ipsum <em>emphasised text</em> dolor sit amet, <strong>strong text</strong> 
+			consectetur adipisicing elit, <abbr title="test">abbreviated text</abbr> sed do eiusmod tempor 
+			<acronym title="hover over">acronym text</acronym> incididunt ut labore et dolore magna aliqua. Ut 
+			<q>quoted text</q> enim ad minim veniam, quis nostrud exercitation <a href="/">link text</a> 
+			ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute <del>deleted text</del> 
+			<ins>inserted text</ins> irure dolor in reprehenderit in voluptate velit esse cillum 
+			dolore eu fugiat nulla pariatur. Excepteur sint occaecat <code>code text</code> cupidatat 
+			non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+			<blockquote>
+			<p>Blockquote. Velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat 
+			cupidatat non proident, sunt in culpa qui officia</p>
+			<p><cite><a href="/">Cite author with link text</a></cite>, 2008</p></blockquote>
+
+			<h2>Header 2</h2>
+
+			<p>Extended paragraph. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod 
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
+			exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in 
+			reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint 
+			occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+			<br/>
+			<ol>
+			<li>Ordered list</li>
+			<li>Item 2 Consectetur adipisicing elit</li>
+			<li>Item 3 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
+			incididunt ut labore et dolore magna aliqua</li>
+			<li>Item 4</li>
+			<li>Item 5</li>
+			</ol>
+			<!-- END PLACEHOLDER -->
+		</div>
+
+
+		<div class="typography-container" ng-if="selectedTypeTab == typographyTabs[4]">
+			<h2>Examples of Print Branding</h2>
+		</div>
+
+		<div class="typography-container" ng-if="selectedTypeTab == typographyTabs[5]">
 		<br/>
-		<div class="typography-container" id="lft">
-			<h3>Heading - LFT Etica Display Heavy</h3>
-			<h1>ABCDEFGHIJKLMNOPQRSTUVWXYZ</h1>
-			<h1>abcdefghijklmnopqrstuvwxyz</h1>
-			<h1>0123456789!@#$%&amp;&quot;</h1>
-			<!-- <h2>Source Sans Pro Regular</h2> -->
+			<h1><i class="fa fa-download"></i></h1>
+			<h2><a href="src/assets/font-pack/font-pack.zip" download="font-pack.zip"> Download Font Pack</a></h2>
+			<p>Last updated: March 2015</p>
+			</div>
+
 		</div>
-		<br/>
-		<div class="typography-container" id="ssp">
-			<h3>Body - Source Sans Pro Regular</h3>
-			<h1>ABCDEFGHIJKLMNOPQRSTUVWXYZ</h1>
-			<h1>abcdefghijklmnopqrstuvwxyz</h1>
-			<h1>0123456789!@#$%&amp;&quot;</h1>
-			<!-- <h2>Source Sans Pro Regular</h2> -->
-		</div>
-		<br/>
-		<div class="typography-container" id="ssp-light">
-			<h3>Body - Source Sans Pro light</h3>
-			<h1>ABCDEFGHIJKLMNOPQRSTUVWXYZ</h1>
-			<h1>abcdefghijklmnopqrstuvwxyz</h1>
-			<h1>0123456789!@#$%&amp;&quot;</h1>
-			<!-- <h2>Source Sans Pro Regular</h2> -->
-		</div>
+
 	</div>
 </section>
 
@@ -140,5 +300,9 @@
   });
 });
 </script>
+
+
+
+
 </body>
 </html>

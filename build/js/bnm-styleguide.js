@@ -1,6 +1,6 @@
 var app = angular.module('bnm-styleguide', []);
 
-app.controller('main-controller', function($scope){
+app.controller('main-controller', function($scope, $window){
 	$scope.primaryColors = [
 		{name: "Red", rgb: "203, 44, 48", hex: "#cb2c30", pms:"PMS 711 C", cmyk:"0, 78, 76, 20"},
 		{name: "Green", rgb: "67, 176, 42", hex: "#43b02a", pms:"PMS 361 C", cmyk:"77, 0, 100, 0"},
@@ -14,9 +14,29 @@ app.controller('main-controller', function($scope){
 		{name: "Slate", rgb: "124, 134, 142", hex: "#d5cfc5", pms:"PMS 7527 C", cmyk:"13, 6, 0, 44"},
 		{name: "Grey", rgb: "124, 134, 142", hex: "#7c868e", pms:"PMS 430 C", cmyk:"13, 6, 0, 44"}
 	];
-	$scope.copyToClipboard = function(text) {
-  		window.prompt("Copy to clipboard: Ctrl/Cmd+C, Enter", text);
+
+
+	//setup the tabs for the typography section
+	$scope.typographyTabs = ['Headings', 'Body Copy', 'Stylesheet', 'Web Use', 'Print Use', 'Download'];
+	$scope.selectedTypeTab = $scope.typographyTabs[0];
+
+	//change the selected state here
+	$scope.selected = function(v){
+		$scope.selectedTypeTab = v
 	}
+
+	$scope.isSelectedTypeTab = function(tab){
+		if(tab === $scope.selectedTypeTab){
+			return {'background-color' : '#444', 'color' : '#fff', 'border-bottom': '2px solid #f47a28'};
+		}
+	}
+
+	// $scope.height = $window.innerHeight;
+	// $scope.heroHeight = $('#hero').offset().top;
+	// console.log($scope.height);
+	// console.log($scope.heroHeight);
+
+	// $('#hero').height($scope.height - 80);
 });
 
 

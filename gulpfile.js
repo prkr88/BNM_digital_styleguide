@@ -37,6 +37,7 @@ gulp.task('scripts', ['assets'], function(){
 		gulp.src('./build/js/angular-app.js'),
 		gulp.src('./build/js/bnm-styleguide.js'),
 		gulp.src('./build/js/data.js'),
+		gulp.src('./build/js/prism.js'),
 		gulp.src('./build/js/temp/templateCache.js')
 		)
 		.pipe(gulp.dest('./public/src/js/'));
@@ -75,7 +76,7 @@ gulp.task('watch-bower', function(){
 //watch these files and run the build if they update
 gulp.task('watch-build', function(){
     gulp.watch(
-        ['./build/scss/*.scss', './build/html/*.html'],
+        ['./build/scss/*.scss', './build/js/*.js', './build/html/*.html'],
         ['build']
     )
 });
