@@ -14,8 +14,8 @@
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
 	<script type="text/javascript" src="src/js/lib/jquery/dist/jquery.js"></script>
-	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 	<script type="text/javascript" src="src/js/lib/angular/angular.js"></script>
+	<script type="text/javascript" src="src/js/lib/angular-animate/angular-animate.js"></script>
 	<script type="text/javascript" src="src/js/bnm-styleguide.js"></script>
 	
 
@@ -31,12 +31,12 @@
 		</div>
 		<div class="glyph">Aa</div>
 	</div>
-	<div class="cheveron-container" id="chev"><a href="#2"><i class="fa fa-angle-down"></i></a></div>
+	<div class="cheveron-container" id="chev"><a href="#our-brand"><i class="fa fa-angle-down"></i></a></div>
 </section>
 
 
 <section id="our-brand">
-	<a name="2"></a>
+	<a name="#our-brand"></a>
 	<div class="content">
 		<h1>Brand Values</h1>
 	</div>
@@ -52,7 +52,7 @@
 
 <section id="typography">
 	<div class="content">
-		<h1>Typography</h1><hr/><br/>
+		<h1>Typography</h1><hr/>
 		<nav class="typography-nav">
 			<ul>
 				<li ng-repeat="tab in typographyTabs"  ng-Click="selected(tab)"><a ng-style="isSelectedTypeTab(tab)" href="">{{tab}}</a></li>
@@ -60,16 +60,16 @@
 		</nav>
 
 		<div class="typography-container" ng-if="selectedTypeTab == typographyTabs[0]">
-			<div class="heading-example">
+<!-- 			<div class="heading-example">
 				<span id="h1Text">Aa</span>
 				<p><span id="char">LFT ETICA DISPLAY HEAVY</span></p>
 				<p><span id="char">abcdefghijklmnoprstuvwxyz</span></p>
-			</div>
+			</div> -->
 		<div class="paragraph-container">
-			<h2>Headings</h2>
+			<br/>
 			<p>The font-family used is Dock11 or LFT Etica Display Heavy with all characters in uppercase and slight letter-spacing. The heading style can be treated with an orange to yellow gradient from left to right. The prefered treatment is a solid orange or grey colour. </p> <br/>
 			
-			<h3>Dock11</h3>
+			<!-- <h3>Dock11</h3>
 			<p>Dock11 is designed for print and should be used sparingly. It has no lowercase and limited special characters and should be reserved for large headings. The typface is freeware and is avaliable from dafont for personal and commercial use.</p>
 			<br/>
 			<h3>LFT Etica Display Heavy</h3>
@@ -77,7 +77,7 @@
 			<br/>
 			<h3>Arial Black</h3>
 			<p>The system font chosen is Arial Black. This should be only be used as a contingency and must not be used in branded material.</p>
-			<br/>
+			<br/> -->
 			</div>
 
 		</div>
@@ -244,7 +244,7 @@
 
 <section id="colors">
 	<div class="content">
-	<h1>Primary Colours</h1><hr/>
+	<h1>Colours</h1><hr/>
 
 	<div class="palette-container">
 		<div class="swatch-container" ng-repeat="color in primaryColors">
