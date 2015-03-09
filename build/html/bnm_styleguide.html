@@ -15,7 +15,6 @@
 
 	<script type="text/javascript" src="src/js/lib/jquery/dist/jquery.js"></script>
 	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-	<script type="text/javascript" src="src/js/lib/Scrollify/jquery.scrollify.js"></script>
 	<script type="text/javascript" src="src/js/lib/angular/angular.js"></script>
 	<script type="text/javascript" src="src/js/bnm-styleguide.js"></script>
 	
@@ -75,9 +74,9 @@
 			<h3>LFT Etica Display Heavy</h3>
 			<p>For cases where headings are required for web, or need special characters, LFT Etica Display Heavy may be used as a substitute. The LFT Etica Display typeface is designed for mixed print and web use. It contains uppercase, lowercase, and special characters. LFT Etica Display Heavy is comercially licensed by Brand New Media for print use only. Any use of this font online is licensed though Adobe TypeKit and must be attributed to Adobe as per their EULA.</p>
 			<br/>
-<!-- 			<h3>Arial Black</h3>
+			<h3>Arial Black</h3>
 			<p>The system font chosen is Arial Black. This should be only be used as a contingency and must not be used in branded material.</p>
-			<br/> -->
+			<br/>
 			</div>
 
 		</div>
@@ -289,42 +288,22 @@
 
 <!-- SMOOTH SCROLLING -->
 // <script type="text/javascript">
-// 	$(function() {
-//   $('a[href*=#]:not([href=#])').click(function() {
-//     if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-//       var target = $(this.hash);
-//       target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-//       if (target.length) {
-//         $('html,body').animate({
-//           scrollTop: target.offset().top
-//         }, 800);
-//         return false;
-//       }
-//     }
-//   });
-// });
-// </script>
-
-    <script>
-    $(function() {
-        $.scrollify({
-            section : "section",
-	        sectionName : "section-name",
-	        easing: "easeOutExpo",
-	        scrollSpeed: 800,
-	        offset : 0,
-	        scrollbars: true,
-	        before:function() {},
-	        after:function() {}
-	        });
-    	$.scrollify("move","#1");
-
-    	$("#chev").on('click', function(){
-    		console.log("chev clicked");
-    		$.scrollify("move","#2");
-    	})
-    });
+	$(function() {
+  $('a[href*=#]:not([href=#])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        $('html,body').animate({
+          scrollTop: target.offset().top
+        }, 800);
+        return false;
+      }
+    }
+  });
+});
 </script>
+
 
 
 </body>
