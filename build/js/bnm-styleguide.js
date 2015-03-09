@@ -30,7 +30,9 @@ app.controller('main-controller', function($scope, $window){
 			return {'background-color' : '#444', 'color' : '#fff', 'border-bottom': '2px solid #f47a28'};
 		}
 	}
-
+	$scope.scrollDown = function(){
+		$.scrollify("move","#2");
+	}
 	// $scope.height = $window.innerHeight;
 	// $scope.heroHeight = $('#hero').offset().top;
 	// console.log($scope.height);
