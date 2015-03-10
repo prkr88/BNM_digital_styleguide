@@ -17,8 +17,8 @@ app.controller('main-controller', function($scope, $window){
 
 
 	//setup the tabs for the typography section
-	$scope.typographyTabs = ['Headings', 'Body Copy', 'Stylesheet', 'Web Use', 'Print Use', 'Download'];
-	$scope.selectedTypeTab = $scope.typographyTabs[0];
+	// $scope.typographyTabs = ['Heading Style', 'Body Style', 'Usage', 'Download'];
+	$scope.selectedTypeTab = 'Typography';
 
 	//change the selected state here
 	$scope.selected = function(v){
